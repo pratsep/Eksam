@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="posts">
+    <?php if (!empty($posts)):?>
+    <!--
+    <pre>
+        <?php print_r($posts); ?>
+    </pre>
+    -->
+    <div class ="comment">
+        <h1>Viimati külastati seda lehte <?php echo htmlspecialchars($posts[0]); ?></h1>
+        <pre>Lehe külastajate arv on <?php echo htmlspecialchars($posts[1])+1; ?></pre>
+    </div>
+
+    <?php else:?>
+    <p><?php echo $errors[0]?></p>
+    <?php endif;?>
+</div>
+</body>
+</html>

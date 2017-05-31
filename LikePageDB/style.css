@@ -1,0 +1,17 @@
+.comment {
+    padding: 10px;
+    background-color: ivory;
+    margin: 5px;
+    width: 630px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+.comment pre {
+    width: 630px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.votes{
+    float: left;
+}

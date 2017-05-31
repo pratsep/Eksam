@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<form method="post" action="add_data.php" id="insert_form">
+    <input type="text" name="user" placeholder="Insert username" required/><br>
+    <textarea id="txtArea" name="comment" form="insert_form" placeholder="Enter text" required></textarea><br>
+    <input id="submit_button" type="submit" value="Post"/>
+</form>
+<div id="posts">
+<?php if (!empty($posts)):?>
+    <!--
+    <pre>
+        <?php print_r($posts); ?>
+    </pre>
+    -->
+<?php foreach($posts as $key1=>$post): ?>
+<div class ="comment">
+    <h1><?php echo htmlspecialchars($post['username']); ?></h1>
+    <pre><?php echo htmlspecialchars($post['comment']); ?></pre>
+</div>
+<?php endforeach; ?>
+<?php else:?>
+    <p>Kommentaarid puuduvad</p>
+<?php endif;?>
+</div>
+</body>
+</html>

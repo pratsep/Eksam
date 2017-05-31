@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Would you like to go on a date with me?</h1>
+<form action="add_data.php" method="POST">
+    <div>
+        <div class="votes">
+        <label for="yes">
+            Yes
+        </label><br/>
+        <input type="radio" id="yes" value="yes" name="vote"/>
+        </div>
+        <div class="votes">
+            <label for="no">
+                No
+            </label><br/>
+            <input type="radio" id="no" value="no" name="vote"/>
+        </div>
+    </div>
+    <br/>
+    <input type="submit" value="Hääletan!"/>
+</form>
+
+<div id="posts">
+    <div class ="comment">
+        <h2>The number of people who would like to go on a date with Priit is <?php echo htmlspecialchars($jah); ?>!</h2>
+        <h2>The number of people who would rather be eaten by an alligator than go on a date with Priit is <?php echo htmlspecialchars($ei); ?>!</h2>
+        <h3><?php echo $voted ?></h3>
+    </div>
+</div>
+</body>
+</html>

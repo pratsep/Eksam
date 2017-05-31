@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Anna lehele hinne!</h1>
+<form action="add_data.php" method="POST">
+    <div>
+    <?php for($i=1; $i<6; $i++): ?>
+        <div class="votes">
+        <label for="p<?php echo $i?>">
+            <?php echo $i; ?>
+        </label><br/>
+        <input type="radio" id="p<?php echo $i?>" value="<?php echo $i;?>" name="vote"/>
+        </div>
+    <?php endfor; ?>
+    </div>
+    <br/>
+    <input type="submit" value="Hääletan!"/>
+</form>
+
+<div id="posts">
+<?php if ($count > 0):?>
+    <div class ="comment">
+        <h2>Lehe keskmine hinne on <?php echo htmlspecialchars($average); ?>!</h2>
+        <h3><?php echo $voted ?></h3>
+    </div>
+<?php else:?>
+    <div class ="comment">
+        <p>Hinded puuduvad</p>
+        <h3><?php echo $voted ?></h3>
+    </div>
+<?php endif;?>
+</div>
+</body>
+</html>

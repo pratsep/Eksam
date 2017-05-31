@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<form method="post" action="add_data.php" id="insert_form">
+    <input type="text" name="user" placeholder="Insert username" required/><br>
+    <input type="text" name="comment" placeholder="Insert comment" required/><br>
+    <input id="submit_button" type="submit" value="Post"/>
+</form>
+<div id="posts">
+    <?php if (!empty($posts)):?>
+    <!--
+    <pre>
+        <?php print_r($posts); ?>
+    </pre>
+    -->
+    <?php for($i = 0; $i < count($posts) - 1; $i=$i+2): ?>
+    <div class ="comment">
+        <h1><?php echo htmlspecialchars($posts[$i]); ?></h1>
+        <pre><?php echo htmlspecialchars($posts[$i + 1]); ?></pre>
+    </div>
+    <?php endfor; ?>
+
+    <?php else:?>
+    <p><?php echo $errors[0]?></p>
+    <?php endif;?>
+</div>
+</body>
+</html>

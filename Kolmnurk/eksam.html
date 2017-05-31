@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Anna lehele hinne!</h1>
+<form action="" method="GET">
+    <div>
+        <div class="kaatetid">
+            <input type="number" name="esimene"/>
+            <input type="number" name="teine"/>
+        </div>
+    </div>
+    <br/>
+    <input type="submit" value="Arvuta hüpotenuus"/>
+</form>
+
+<div id="posts">
+    <?php if(isset($_GET['esimene']) && isset($_GET['teine'])): ?>
+        <div class ="comment">
+            <?php if(empty($errors)): ?>
+                <h2>kolmnurga hüpotenuus on <?php echo htmlspecialchars($result); ?>!</h2>
+            <?php else: ?>
+                <h2><?php echo htmlspecialchars($errors[0]); ?></h2>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+</div>
+</body>
+</html>

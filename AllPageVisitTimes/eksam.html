@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="posts">
+    <?php if (!empty($posts)):?>
+    <!--
+    <pre>
+        <?php print_r($posts); ?>
+    </pre>
+    -->
+    <div class ="comment">
+        <h1>Külastuste ajad</h1>
+        <?php foreach($posts as $time): ?>
+            <h3><?php echo htmlspecialchars($time); ?></h3>
+        <?php endforeach; ?>
+    </div>
+
+    <?php else:?>
+    <p><?php echo $errors[0]?></p>
+    <?php endif;?>
+</div>
+</body>
+</html>

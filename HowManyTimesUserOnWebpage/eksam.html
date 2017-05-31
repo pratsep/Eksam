@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="posts">
+
+    <div class ="comment">
+        <h1>Oled külastanud lehte <?php echo htmlspecialchars($visits); ?> korda!</h1>
+        <?php if($last_visit == 0): ?>
+            <h2>Pole varem seda lehte külastanud!</h2>
+        <?php else: ?>
+            <h2>Viimati külastasid lehte <?php echo $last_visit ?></h2>
+        <?php endif; ?>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<form method="post" action="add_data.php" enctype="multipart/form-data" id="insert_form">
+    <div class="sisestus">
+        Lisa tekstifail<br>
+        <input type="file" name="image"><br>
+    </div>
+    <input id="submit_button" type="submit" value="Post"/>
+</form>
+<div id="posts">
+
+    <!--
+    <pre>
+        <?php print_r($posts); ?>
+    </pre>
+    -->
+        <div class ="main">
+            <h1>Faile on kaustas <?php echo $filecount; ?>!</h1>
+        </div>
+    <?php if (!empty($_SESSION['errors'])):?>
+        <p><?php echo htmlspecialchars($_SESSION['errors']); ?></p>
+    <?php endif;?>
+</div>
+</body>
+</html>
