@@ -1,0 +1,44 @@
+<?php if(isset($_SESSION['user'])): ?>
+    <div id="container_user">
+        <h2>Showing notes for <span id="p2"><?php echo htmlspecialchars($_SESSION['user']); ?></span></h2>
+        <a class="log" href="?navigate=logout">Log out</a>
+    </div>
+    <a class="add" href="?navigate=add_note">Add a new note</a><br/>
+<?php else: ?>
+    <?php login_form(); ?>
+    <div id="container_users">
+        <span id="p3">Notes are available for the following users:</span><br/>
+        <?php foreach($users as $user): ?>
+            <?php echo htmlspecialchars($user['username']). "<br/>"; ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
+
+<div id="posts">
+<?php if(isset($_SESSION['user'])): ?>
+    <?php if (!empty($posts)):?>
+    <!--
+         <pre>
+             <?php print_r($row); ?>
+         </pre>
+        -->
+    <?php foreach($posts as $key1=>$post): ?>
+        <div class ="comment">
+            <p><?php echo htmlspecialchars($post['notes']); ?></p>
+            <form class="formDE" action="?navigate=edit_note" method='post' name='editCmnt'>
+                <div class="form_input"><input type='hidden' name='edit' value="<?php echo htmlspecialchars($post['id']) ?>" /></div>
+                <input type='submit' value='Edit note'/>
+            </form>
+            <form class="formDE" action='?navigate=delete_note' method='post' name='deleteCmnt'>
+                <div class="form_input"><input type='hidden' name='delete' value="<?php echo htmlspecialchars($post['id']) ?>" /></div>
+                <input type='submit' value='Delete note'/>
+            </form>
+
+        </div>
+    <?php endforeach; ?>
+    <?php else:?>
+        <p>Märkmed puuduvad</p>
+    <?php endif;?>
+<?php endif; ?>
+</div>
